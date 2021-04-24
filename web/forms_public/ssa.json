@@ -1,0 +1,618 @@
+{
+    "meta": {
+	"title": "Security Self Assessment (SSA)",
+	"category": "Security Self Assessment",
+	"path": "ssa",
+	"sortkey": 0,
+	"contains_risk": true
+    },
+    "lines": [
+	{
+	    "type": "header",
+	    "text": "Application Risk Profile"
+	},
+	{
+	    "id": "apprisk_type_of_service",
+	    "type": "multiple",
+	    "text": "Type of service",
+	    "values": [
+		"Backend",
+		"Web front",
+		"Mobile app"
+	    ],
+	    "points": [
+		5,
+		2,
+		2
+	    ]
+	},
+	{
+	    "id": "apprisk_type_of_data",
+	    "type": "multiple",
+	    "text": "Type of data stored",
+	    "values": [
+		"Accounting, including payments",
+		"PII (Personally Identifiable Information), like names, addresses, email addresses, passwords, SSN",
+		"Financial services data",
+		"education",
+		"IP address",
+		"location / GPS data",
+		"user created content",
+		"children",
+		"marketing data",
+		"tracking cookies",
+		"other confidential information"
+	    ],
+	    "effort": 0,
+	    "points": [
+		3,
+		3,
+		2,
+		2,
+		1,
+		2,
+		1,
+		2,
+		2,
+		2,
+		4
+	    ]
+	},
+	{
+	    "id": "apprisk_number_of_users",
+	    "type": "radio",
+	    "text": "Number of records (users / customers)",
+	    "values": [
+		"&lt; 1000",
+		"1000+",
+		"10000+"
+	    ],
+	    "effort": 0,
+	    "points": [
+		1,
+		2,
+		4
+	    ]
+	},
+	{
+	    "id": "apprisk_num_security_issues",
+	    "type": "number",
+	    "text": "Number of open security issues (jira or equivalent)",
+	    "effort": 0,
+	    "points": 0
+	},
+	{
+	    "id": "apprisk_num_privacy_issues",
+	    "type": "number",
+	    "text": "Number of open privacy issues (jira or equivalent)",
+	    "effort": 0,
+	    "points": 0
+	},
+	{
+	    "id": "apprisk_num_risk_issues",
+	    "type": "number",
+	    "text": "Number of open risk issues (jira or equivalent)",
+	    "effort": 0,
+	    "points": 0
+	},
+	{
+	    "type": "header",
+	    "text": "Design"
+	},
+	{
+	    "type": "subheader",
+	    "text": "General"
+	},
+	{
+	    "id": "design_docs_exist",
+	    "type": "yesno",
+	    "text": "High-level system documentation exists",
+	    "description": "High-level documentation helps onboard new developers and helps in assessing risks.",
+	    "effort": 3,
+	    "impact": 4,
+	    "points": 3
+	},
+	{
+	    "id": "design_threat_modelling_done",
+	    "type": "yesno",
+	    "text": "Threat modelling is done on a regular basis",
+	    "description": "Threat modeling should be done regularly. If also Self Assessment is done regularly, threat modeling can be more lightweight as the SSA already covers common risks.",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 3
+	},
+	{
+	    "id": "design_pianal_done",
+	    "type": "yesno",
+	    "text": "Privacy impacts of current and new features are assessed. The results of this assessment are recorded and are up to date",
+	    "description": "This is required",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 3
+	},
+	{
+	    "id": "design_tos_uptodate",
+	    "type": "yesno",
+	    "text": "Terms of Service documents are up to date",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "design_secdev",
+	    "type": "yesno",
+	    "text": "Secure software development practices are followed",
+	    "description": "There is no good definition here, but \"Yes\" here means, at minimum, that SSA is filled regularly, and also that threat modeling is done regularly, security defects exists in some ticketing system and are given relevant priority like any other issues and tasks",
+	    "effort": 4,
+	    "impact": 4,
+	    "points": 3
+	},
+	{
+	    "type": "subheader",
+	    "text": "Data"
+	},
+	{
+	    "id": "design_pii_classified",
+	    "type": "yesno",
+	    "text": "PII is classified",
+	    "description": "At a minimum, you are aware of all PII you have, don't store too much of it, and are aware of the risks of possessing it",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "design_only_minimally_necessary_info",
+	    "type": "yesno",
+	    "text": "Only minimally necessary personal information is collected",
+	    "description": "Get help and guidance from the privacy team as needed",
+	    "effort": 3,
+	    "impact": 4,
+	    "points": 3
+	},
+	{
+	    "id": "design_data_is_deleted",
+	    "type": "yesno",
+	    "text": "Personal data is deleted when customer / user discontinues service",
+	    "description": "ditto",
+	    "effort": 2,
+	    "impact": 4,
+	    "points": 2
+	},
+	{
+	    "id": "design_default_max_privacy",
+	    "type": "yesno",
+	    "text": "Default setting is maximum privacy",
+	    "description": "this question is relevant if user has any choice on how much or how long to store PII",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "design_consent_collected_data_optin",
+	    "type": "yesno",
+	    "text": "User consent is collected before collecting data and data sharing is opt-in",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "design_data_retention_policy",
+	    "type": "yesno",
+	    "text": "Data retention policy exists",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 4
+	},
+	{
+	    "id": "design_pseudonymisation",
+	    "type": "yesno",
+	    "text": "Pseudonymisation / anonymisation is used where appropriate",
+	    "description": "",
+	    "effort": 4,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "type": "subheader",
+	    "text": "Data protection"
+	},
+	{
+	    "id": "design_dp_unusual_logins",
+	    "type": "yesno",
+	    "text": "User is protected against unusual logins",
+	    "description": "One possible test case: VPN hopping and/or user-agent switching between successive logins. If SaaS/PaaS/something-aaS, check with your vendor if this is covered",
+	    "effort": 4,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "design_dp_password_changes",
+	    "type": "yesno",
+	    "text": "User is protected against suspicious password changes",
+	    "description": "what is \"suspicious\"? An \"unusual\" login followed by password change",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "design_dp_pwn_payloads",
+	    "type": "yesno",
+	    "text": "User/system is protected against obviously malicious payloads",
+	    "description": "Verify with fuzzing tools, such as burp or sqlmap, check the PayloadsAllTheThing github repo, https://github.com/swisskyrepo/PayloadsAllTheThings",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 1
+	},
+	{
+	    "id": "design_dp_scripted_use",
+	    "type": "yesno",
+	    "text": "User/system is protected against scripted use / scraping",
+	    "description": "Minimally, rate limiting",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "type": "header",
+	    "text": "Implementation"
+	},
+	{
+	    "type": "subheader",
+	    "text": "General"
+	},
+	{
+	    "id": "impl_gen_appsecrets",
+	    "type": "yesno",
+	    "text": "Application secrets are stored securely and are NOT in version control",
+	    "description": "AWS secrets or similar",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 2
+	},
+	{
+	    "id": "impl_gen_access_secrets",
+	    "type": "yesno",
+	    "text": "Access controls to application secrets are reviewed and make sense",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "impl_gen_input_validated",
+	    "type": "yesno",
+	    "text": "Input from external sources (eg. users) is validated",
+	    "description": "<a onmouseover=\"alert(1)\" src=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"_blank\">check this resource for reference and bad examples</a>",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 2
+	},
+	{
+	    "id": "impl_gen_input_validation_whitelist",
+	    "type": "yesno",
+	    "text": "Input validation is based on whitelisting",
+	    "description": "regex / allowlist that only passes good input, instead of trying to block bad input",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "impl_gen_input_validation_fuzzed",
+	    "type": "yesno",
+	    "text": "Input validation is tested with fuzzing tools",
+	    "description": "Verify with fuzzing tools, such as burp or sqlmap, check the PayloadsAllTheThing github repo, https://github.com/swisskyrepo/PayloadsAllTheThings",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "impl_gen_random_sessids",
+	    "type": "yesno",
+	    "text": "Session identifiers are generated so that they are hard to guess",
+	    "description": "Non-sequential, large enough edit distance between identifiers. This means, given a valid identifier, you can't guess another valid identifier",
+	    "effort": 1,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "type": "subheader",
+	    "text": "Third party components"
+	},
+	{
+	    "id": "impl_3rd_uptodate",
+	    "type": "yesno",
+	    "text": "All 3rd party components are currently up to date",
+	    "description": "Not referring to diehard everyday dependency updates. Answer yes if stuff (eg. npm packages) are kept reasonably up to date. For example, Github dependabot alerts acted upon is good here",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "impl_3rd_can_list",
+	    "type": "yesno",
+	    "text": "Can you actually list all 3rd party components, or have a catalog of them",
+	    "description": "eg. output generated from dependency manager. Not asking to list every apt/yum package on the VM/container.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "impl_3rd_all_necessary",
+	    "type": "yesno",
+	    "text": "Are all 3rd party components actually in use or necessary?",
+	    "description": "Does your IDE/other dev tools identify unused references?",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "impl_3rd_fix_process",
+	    "type": "yesno",
+	    "text": "Is there a process or practice in place to identify, list and fix known vulnerabilities in 3rd party components?",
+	    "description": "example, github dependabot works and its findings are acted on",
+	    "effort": 3,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "impl_3rd_sec_aborts_build",
+	    "type": "yesno",
+	    "text": "Can security issues in 3rd party abort the build?",
+	    "description": "automatically",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 3
+	},
+	{
+	    "id": "impl_3rd_proc_update_eol",
+	    "type": "yesno",
+	    "text": "A process exists to update out of date / EoL components",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "impl_3rd_licenses_ok",
+	    "type": "yesno",
+	    "text": "Are 3rd party licenses OK",
+	    "description": "you have checked they have licenses, and the licenses allow distribution. Absence of license doesn't mean it's licensed for distribution",
+	    "effort": 1,
+	    "impact": 3,
+	    "points": 1
+	},
+	{
+	    "id": "impl_3rd_c_t_notices",
+	    "type": "yesno",
+	    "text": "Are copyright / trademark / licence notices in place?",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 1
+	},
+	{
+	    "type": "subheader",
+	    "text": "Defects"
+	},
+	{
+	    "id": "impl_def_categorized",
+	    "type": "yesno",
+	    "text": "Defects are categorized so that security defects can be found and counted",
+	    "description": "eg. trello or jira has security/privacy tags/attributes",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "impl_def_slas",
+	    "type": "yesno",
+	    "text": "SLAs are defined for different security defect severity classes",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "type": "header",
+	    "text": "Operations"
+	},
+	{
+	    "type": "subheader",
+	    "text": "General"
+	},
+	{
+	    "id": "ops_gen_waf",
+	    "type": "yesno",
+	    "text": "Application is protected by a Web Application Firewall",
+	    "description": "Just asking. Not all applications need a WAF",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "ops_gen_envs",
+	    "type": "yesno",
+	    "text": "Separate production and development environments exist",
+	    "description": "Staging and test are nice too",
+	    "effort": 2,
+	    "impact": 4,
+	    "points": 3
+	},
+	{
+	    "type": "subheader",
+	    "text": "Incident management"
+	},
+	{
+	    "id": "ops_inc_security_contact",
+	    "type": "yesno",
+	    "text": "Security contact exists and is provided to end users",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "ops_inc_logs_analyzed",
+	    "type": "yesno",
+	    "text": "Logs are analyzed (at least semiautomatically) for possible security incidents",
+	    "description": "",
+	    "effort": 3,
+	    "impact": 4,
+	    "points": 4
+	},
+	{
+	    "id": "ops_inc_sec_inc_automatic_alert",
+	    "type": "yesno",
+	    "text": "Possible security incidents generate an automatic alert",
+	    "description": "\"possible\" == at least simple rate limit triggers, WAF triggers",
+	    "effort": 3,
+	    "impact": 3,
+	    "points": 4
+	},
+	{
+	    "id": "ops_inc_detection_tested",
+	    "type": "yesno",
+	    "text": "Security incident mechanism has been tested (simple test is enough, eg. sqlmap against an API)",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 2
+	},
+	{
+	    "type": "subheader",
+	    "text": "Backup and recovery"
+	},
+	{
+	    "id": "ops_br_plans",
+	    "type": "yesno",
+	    "text": "Backup and recovery plans exist",
+	    "description": "and are up to date",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 2
+	},
+	{
+	    "id": "ops_br_safeloc",
+	    "type": "yesno",
+	    "text": "Backups are stored in a secure location",
+	    "description": "Can the relevant people find them when shit hits the fan?",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "ops_br_protect",
+	    "type": "yesno",
+	    "text": "Backups are protected during transit against unauthorized access and tampering",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "ops_br_logged",
+	    "type": "yesno",
+	    "text": "Execution of backups is logged and monitored to ensure they are completed",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "ops_br_testing",
+	    "type": "yesno",
+	    "text": "Backup and recovery procedures are tested (and have been tested)",
+	    "description": "",
+	    "effort": 3,
+	    "impact": 4,
+	    "points": 2
+	},
+	{
+	    "id": "ops_br_lifecycle",
+	    "type": "yesno",
+	    "text": "Backup lifecycle (retention, end of life) have been defined",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "type": "header",
+	    "text": "Verification"
+	},
+	{
+	    "type": "subheader",
+	    "text": "General"
+	},
+	{
+	    "id": "ver_general_seceng",
+	    "type": "yesno",
+	    "text": "Security engineer/champion has been nominated",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 3
+	},
+	{
+	    "id": "ver_general_priveng",
+	    "type": "yesno",
+	    "text": "Privacy champion has been nominated",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 3
+	},
+	{
+	    "id": "ver_general_pentest_regularly",
+	    "type": "yesno",
+	    "text": "Pentesting is done regularly",
+	    "description": "DIY or ask someone (osku) for cursory checks",
+	    "effort": 2,
+	    "impact": 3,
+	    "points": 2
+	},
+	{
+	    "id": "ver_general_sast",
+	    "type": "yesno",
+	    "text": "SAST (Static Application Security Testing) is done / is automated",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "ver_general_dast",
+	    "type": "yesno",
+	    "text": "DAST (Dynamic Application Security Testing) is done / is automated",
+	    "description": "",
+	    "effort": 2,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "type": "subheader",
+	    "text": "Business continuity"
+	},
+	{
+	    "id": "ver_bc_dr_exists",
+	    "type": "yesno",
+	    "text": "A disaster recovery plan exists",
+	    "description": "Can the relevant people find them when shit hits the fan? Plans aren't helpful if you can't access them",
+	    "effort": 3,
+	    "impact": 3,
+	    "points": 4
+	},
+	{
+	    "id": "ver_bc_dr_tested",
+	    "type": "yesno",
+	    "text": "Disaster recovery plan has been tested or exercised",
+	    "description": "",
+	    "effort": 3,
+	    "impact": 4,
+	    "points": 4
+	}
+    ]
+}

@@ -1,0 +1,39 @@
+@tailwind base;
+
+
+h1 {
+    @apply text-2xl m-2;
+}
+h2 {
+    @apply text-xl m-2;
+}
+h3 {
+    @apply m-2;
+}
+
+table {
+    @apply table-auto m-2;
+}
+
+.table tr:first-child {
+    @apply bg-blue-300;
+}
+
+.table tr:nth-child(even) {
+    @apply bg-indigo-200;
+}
+
+.table tr:nth-child(2n+1) {
+    @apply bg-blue-200;
+}
+
+tr, td, p {
+    @apply p-2;
+}
+
+a {
+    @apply text-blue-800 underline;
+}
+
+@tailwind components;
+@tailwind utilities;

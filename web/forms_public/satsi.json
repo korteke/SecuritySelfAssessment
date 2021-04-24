@@ -1,0 +1,394 @@
+{
+    "meta": {
+	"title": "Security Assessment for Third-party Service Integrations (SATSI)",
+	"category": "Security Self Assessment",
+	"path": "satsi",
+	"sortkey": 0,
+	"contains_risk": false
+    },
+    "lines": [
+	{ "type": "header",
+	  "text": "Scope"
+	},
+	{ "type": "paragraph",
+	  "text": "This form exists to document the information security and privacy posture of a service or platform, '*aaS', provided to $MYCOMPANY by a third party. The service can be a part of a product $MYCOMPANY offers to its customers, such as Salesforce providing parts of the B2B products. The service can also be something that supports $MYCOMPANY conducting its business activities, such as the $MYCOMPANY customer database."
+	},
+	{ "type": "paragraph",
+	  "text": "Fill this form to the best of your knowledge. You can also fill this form partially and let someone else fill the missing items. A missing answer counts as no. Choose N/A only if the requirement clearly doesn't apply. Also, the objective here is not to get a high score, but to get a realistic assessment of the information security and privacy posture. Also, contrary to the Security Self-Assessment, it's not always possible or even relevant to strive towards the highest possible score here."
+	},
+	{ "type": "header",
+	  "text": "Risk profile"
+	},
+
+	{ "type": "textblock",
+	  "text": "This document provides a checklist for most essential security and privacy requirements for third-party services integrated to support $MYCOMPANY products or services. Consider this form as the SSA but for X-as-a-Service integrations."
+	},
+
+	{
+	    "id": "apprisk_type_of_data",
+	    "type": "multiple",
+	    "text": "Type of data stored",
+	    "values": [
+		"Accounting / payments / financial data",
+		"PII (Personally Identifiable Information), like names, addresses, email addresses, passwords, SSN",
+		"PII belonging to children",
+		"Marketing / tracking data",
+		"other confidential information, such as operational or business planning data"
+	    ],
+	    "effort": 1,
+	    "points": [
+		1, 1, 1, 1, 1
+	    ]
+	},
+	{
+	    "id": "apprisk_number_of_users",
+	    "type": "radio",
+	    "text": "Number of records (users / customers)",
+	    "values": [
+		"&lt; 1000",
+		"1000+",
+		"10000+"
+	    ],
+	    "effort": 1,
+	    "points": [
+		1,
+		2,
+		4
+	    ]
+	},
+	{
+	    "id": "apprisk_num_security_issues",
+	    "type": "number",
+	    "text": "Number of open security issues (jira or equivalent)",
+	    "effort": 1,
+	    "points": 1
+	},
+	{
+	    "id": "apprisk_num_privacy_issues",
+	    "type": "number",
+	    "text": "Number of open privacy issues (jira or equivalent)",
+	    "effort": 1,
+	    "points": 1
+	},
+	{
+	    "id": "apprisk_num_risk_issues",
+	    "type": "number",
+	    "text": "Number of open risk issues (jira or equivalent)",
+	    "effort": 1,
+	    "points": 1
+	},
+	{
+	    "type": "header",
+	    "text": "Contractual"
+	},
+	{
+	    "id": "contract_exists",
+	    "type": "yesno",
+	    "text": "A mutual contract exists",
+	    "description": "A mutual contract exists between $MYCOMPANY and the service provider. Simply using a free or paid service and agreeing to terms and conditions does NOT establish a mutual contract.",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 1
+	},
+	{
+	    "id": "contract_isa",
+	    "type": "yesno",
+	    "text": "Contract includes an Information Security Appendix",
+	    "description": "The mutual contract between $MYCOMPANY and the service provider includes an Information Security Appendix or similar content/agreement/amendment. The appendix covers the information security aspects of the mutual contract. The requirements included must cover the whole lifecycle of the agreement, including termination. ($MYCOMPANY Third Party Security Standard)",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 1
+	},
+	{
+	    "id": "contract_dpa",
+	    "type": "yesno",
+	    "text": "Contract includes a Data Protection Appendix",
+	    "description": "The mutual contract between $MYCOMPANY and the service provider includes/refers to a Data Protection Appendix or similar agreement/amendment. The appendix covers the data protection and privacy aspects of the contract.",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 1
+	},
+	{
+	    "id": "contract_nda",
+	    "type": "yesno",
+	    "text": "A signed, mutual NDA exists",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 1
+	},
+	{
+	    "id": "contract_sla",
+	    "type": "yesno",
+	    "text": "SLAs are defined regarding security and privacy incidents",
+	    "description": "SLAs (Service Level Agreement) are defined regarding availability of service and handling of eventual security or privacy incidents",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "id": "contract_legal",
+	    "type": "yesno",
+	    "text": "Legal aspects of the contract are OK",
+	    "description": "Legal aspects are OK. If unsure if this is relevant, check with the Privacy or legal team(s). ($MYCOMPANY Third Party Security Standard)",
+	    "effort": 1,
+	    "impact": 2,
+	    "points": 1
+	},
+	{
+	    "type": "header",
+	    "text": "Organization"
+	},
+	{
+	    "id": "org_emcontact",
+	    "type": "yesno",
+	    "text": "Emergency contacts exist",
+	    "description": "Emergency contacts regarding the service are named and known by both parties (both at the provider and $MYCOMPANY), so that in case of a security or privacy incident, mutual communication can be established reasonably quickly.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+
+	{
+	    "type": "header",
+	    "text": "Security"
+	},
+	{
+	    "id": "security_secdev",
+	    "type": "yesno",
+	    "text": "Provider does secure development",
+	    "description": "Provider has a secure development workflow / framework in place. Provider is able to describe said model and can demonstrate they implement and follow up on metrics to ensure a sufficient maturity level",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_audit_exists",
+	    "type": "yesno",
+	    "text": "Provider can produce proof of having been audited",
+	    "description": "Provider has been audited by a reputable company specialized in security audits. Provider has presented audit reports or has made audit reports available to $MYCOMPANY.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_pentests",
+	    "type": "yesno",
+	    "text": "Provider can produce proof of having been penetration tested",
+	    "description": "Provider has been penetration tested reasonably recently by a reputable security company. Penetration test reports are available to $MYCOMPANY to review and have been reviewed.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_has_certs",
+	    "type": "yesno",
+	    "text": "Provider is certified",
+	    "description": "Provider has been certified to a significant information security standard describing security governance, such as ISO27001. Also, if certified, the service provided to $MYCOMPANY is also fully compliant to the same standard.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_compartmented",
+	    "type": "yesno",
+	    "text": "Data belonging to $MYCOMPANY is isolated",
+	    "description": "Data hosted by the provider and belonging to $MYCOMPANY is isolated so that if the provider is breached through ervice provided to another customer, $MYCOMPANY data is not immediately available.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_logs_analyzed",
+	    "type": "yesno",
+	    "text": "Logs are analyzed (at least semiautomatically) for possible security incidents. Metrics are provided to $MYCOMPANY at least when requested",
+	    "description": "",
+	    "effort": 3,
+	    "impact": 4,
+	    "points": 4
+	},
+	{
+	    "id": "security_sec_inc_automatic_alert",
+	    "type": "yesno",
+	    "text": "Possible security incidents generate an automatic alert",
+	    "description": "\"possible\" == at least simple rate limit triggers, WAF triggers",
+	    "effort": 3,
+	    "impact": 3,
+	    "points": 4
+	},
+	{
+	    "id": "security_detection_tested",
+	    "type": "yesno",
+	    "text": "Security incident mechanism has been tested (simple test is enough, eg. sqlmap against an API)",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 2
+	},
+	{
+	    "id": "security_physsec",
+	    "type": "yesno",
+	    "text": "Provider can demonstrate sufficient physical security around $MYCOMPANY data",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_encr",
+	    "type": "yesno",
+	    "text": "Data belonging to $MYCOMPANY is encrypted",
+	    "description": "Data belonging to $MYCOMPANY is encrypted at rest (physical storage) and in transit by end-to-end encryption.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_userauth_federated",
+	    "type": "yesno",
+	    "text": "User management supports federation",
+	    "description": "User management supports federation. Federated identity by definition means: A federated identity is the means of linking a person's electronic identity and attributes, stored across multiple distinct identity management systems. This requirement is likely fulfilled if at least the following conditions are true: User management supports Single Sign-On, can be integrated with an SSO preferred by $MYCOMPANY (eg. $MYCOMPANY AD / $MYCOMPANY SSO), and supports integration with a SIEM used by $MYCOMPANY.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_userauth_lifecycle",
+	    "type": "yesno",
+	    "text": "User management has meaningful lifecycle management options",
+	    "description": "$MYCOMPANY is able to control the lifecycle of user access to the service with sufficient granularity. For example, when an employee or contractor leaves $MYCOMPANY, said person's access to the service can be easily and automatically revoked",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_auth_audit",
+	    "type": "yesno",
+	    "text": "User access can be audited",
+	    "description": "The system/service logs user authentication and access events so that access to $MYCOMPANY data can be audited in case of security or privacy incidents",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "security_mfa",
+	    "type": "yesno",
+	    "text": "User authentication supports multi-factor authentication",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+
+	{
+	    "type": "header",
+	    "text": "Privacy"
+	},
+
+	{
+	    "id": "privacy_data_lifecycle",
+	    "type": "yesno",
+	    "text": "Data lifecycle is clearly defined",
+	    "description": "Dafa lifecycle is clearly defined -- retention periods are defined, and how and when data is ultimately destroyed",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "privacy_pia_done",
+	    "type": "yesno",
+	    "text": "Privacy Impact Assessment is done and up to date",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 1
+	},
+	{
+	    "id": "privacy_gdprcompliance",
+	    "type": "yesno",
+	    "text": "Data belonging to $MYCOMPANY is only stored and processed in a GDPR compliant manner",
+	    "description": "Contract with the service provider describes roles and responsibilities that clearly indicate the terms are GDPR compliant. If data is stored outside of the European Economic Area, the mutual contract with the provider must include binding rules that ensure GDPR compliance. Lack of contract and data outside the EEA means a NO here.",
+	    "effort": 1,
+	    "impact": 4,
+	    "points": 1
+	},
+
+
+	{
+	    "type": "header",
+	    "text": "Risks and continuity"
+	},
+	{
+	    "type": "paragraph",
+	    "text": "These requirements describe the risks associated to the use of service. They can be defined and assessed by $MYCOMPANY, and can refer to risk assessments provided by the service provider."
+	},
+
+	{
+	    "id": "risks_termination",
+	    "type": "yesno",
+	    "text": "A plan exists to replace service if necessary",
+	    "description": "The risk of the vendor/provider discontinuing service or being unable to deliver service is assessed",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "risks_oss",
+	    "type": "yesno",
+	    "text": "Open source software risk is assessed",
+	    "description": "Risks using open source software are assessed. Open source software risks could include eg. handling vulnerabilities in open source code, dealing with sudden licencing changes, estimated response times in case of severe vulnerabilities. ",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "risks_cloud",
+	    "type": "yesno",
+	    "text": "Cloud platform risks are assessed and addressed",
+	    "description": "Risks related to sudden changes to availability of the cloud provider used are assessed and addressed. For example, action plans exist on what to do when the cloud provider used suffers extensive outage.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "risks_dataloss",
+	    "type": "yesno",
+	    "text": "Data stored by provider is stored redundantly",
+	    "description": "Critical data stored by provider is stored redundantly so that it's protected against total destruction of at least one data center or geographical location used by the provider. Data centers can catch fire, for example.",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "risks_bc_dr_exists",
+	    "type": "yesno",
+	    "text": "A disaster recovery plan exists",
+	    "description": "Can the relevant people find them when shit hits the fan? Plans aren't helpful if you can't access them",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "risks_bc_dr_tested",
+	    "type": "yesno",
+	    "text": "Disaster recovery plan has been tested or exercised",
+	    "description": "",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	},
+	{
+	    "id": "risks_bc_not_ruled_out",
+	    "type": "yesno",
+	    "text": "Business continuity exercises are possible",
+	    "description": "Contract with provider does not explicitly and categorically rule out business continuity exercises (yes, this is a thing).",
+	    "effort": 1,
+	    "impact": 1,
+	    "points": 1
+	}
+
+
+	
+	]
+
+}
